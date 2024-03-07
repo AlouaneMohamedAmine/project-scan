@@ -1,0 +1,15 @@
+{
+  "name": "project-scan",
+  "version": "1.0.0",
+  "scripts": {
+    "setup": "npm i && husky install && npm --prefix ./frontend i && npm --prefix ./backend i",
+    "migrate": "cd backend/ && node migrate.js && cd ..",
+    "dev": "concurrently -n frontend,backend -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"npm --prefix ./frontend run dev\" \"npm --prefix ./backend run dev\"",
+    "dev-front": "npm --prefix ./frontend run dev",
+    "dev-back": "npm --prefix ./backend run dev"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.4.5"
+  }
+}
